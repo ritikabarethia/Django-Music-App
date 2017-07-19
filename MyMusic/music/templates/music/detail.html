@@ -1,0 +1,38 @@
+{% extends 'music/base.html' %}
+
+{% block title %}Song details {% endblock %}
+{% block body %}
+
+<h1 style="margin-left: 30px">Album : {{album.album_title}}</h1>
+<img src="{{album.album_logo}}" style="margin-left: 30px">
+
+<h3 style="margin-left: 30px">Artist :{{album.artist}}</h3>
+
+{% if error_message %}
+	<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+
+<!-- <form action="" method="post">
+	{% csrf_token %}
+	{% for song in album.song_set.all %}
+		<input type="radio" id="song {{forloop.counter}}" name="song" value="{{ song.id }}">
+		<label for="song{{ forloop.counter }}">
+			{{ song.song_title }}
+			{% if song.is_favorite %}
+				<img src="http://i.imgur.com/b9b13Rd.png" />
+			{% endif %}
+		</label>
+		<br>
+	{% endfor %}
+
+	<input type="submit" name="" value="Favorite">
+</form>
+ -->
+<!-- <ul>
+	{% for song in album.song_set.all %}
+		<li>{{song.song_title}} - {{song.file_type}}</li>
+	{% endfor %}
+</ul> -->
+
+{% endblock %}

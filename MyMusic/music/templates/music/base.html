@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %} MyMusic {% endblock %}</title>
+<!-- load path to your static path -->
+{% load staticfiles %}
+<!-- for bootstrap css-->
+<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- for bootstrap js-->
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- font style -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy">
+<!-- Ajax -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- our css files always comes last -->
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}">
+
+</head>
+
+<body>
+
+<!-- nav bar -->
+<nav class="navbar" style="background-color: #149555 ">
+	<div class="container-fluid">
+
+		<!--Logo-->
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+		    	<span class="icon-bar"></span>
+		    	<span class="icon-bar"></span>
+		    	<span class="icon-bar"></span>		    	
+		    </button>
+			<a class="navbar-brand" href="{% url 'index' %}" style="color: #FFFFFF"> MyMusic </a>
+		</div>
+		
+		<!-- Iteams -->
+		<div class="collapse navbar-collapse" id="topNavBar">
+
+			<ul class="nav navbar-nav ">
+				<li class="">
+					<a href="{% url 'album-add' %}" style="color: #FFFFFF">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add Album
+					</a>
+				</li>	
+			</ul>
+
+		</div>
+	</div>	
+</nav>
+
+{% block body %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'music/base.html' %}
+{% block body %}
+{% if all_albums %}
+	<h1>Here are the list of all your albums</h1>
+	<table style="margin-left: 55px">
+		{% for album in all_albums %}
+		<tr>
+			<td>
+			<a href="{% url 'detail' album.id %}"> {{album.album_title}}	</a>
+			</td>
+			
+			<td>
+			    &nbsp;&nbsp;   
+			</td>
+			<td>
+			<form action="" method="post" style="display: inline;">
+				{% csrf_token %}
+				<input type="hidden" name="album_id" value="{{ album.id }}">
+
+				<button type="submit" class="btn btn-default btn-sm">
+					<span class="glyphicon glyphicon-trash"></span>
+					
+				</button>
+			</form>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% else %}
+	<h3>You dont have any album</h3>
+{% endif %}
+{% endblock %}
